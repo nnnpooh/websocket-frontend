@@ -5,7 +5,8 @@ type socketContextProps = {
   socket: Socket;
 };
 
-const socket = io("http://172.25.43.16:3000");
+const socket = io("http://localhost:3000/custom-namespace");
+console.log("Initialize Websocket");
 const WebsocketContext = createContext<socketContextProps>({
   socket,
 });
