@@ -5,7 +5,15 @@ type socketContextProps = {
   socket: Socket;
 };
 
-const socket = io("http://localhost:3000/custom-namespace");
+const socket = io("http://localhost:3000/custom-namespace", {
+  extraHeaders: {
+    secret: "12345",
+  },
+  auth: {
+    userId: "ward",
+    role: "admin",
+  },
+});
 console.log("Initialize Websocket");
 const WebsocketContext = createContext<socketContextProps>({
   socket,
